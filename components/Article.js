@@ -119,40 +119,48 @@ console.log(data)
 
 // Step 1 
 
-function articleMaker(obj){
+function articleMaker(data){
 
   // create the elements
 
  const div = document.createElement('div');
-  this.title = document.createElement('h2');
-  this.date = document.createElement('p')
-  this.firstParagraph = document.createElement('p');
-  this.secondParagraph = document.createElement('p');
-  this.thirdParagraph = document.createElement('p');
- const newSpan = document.createElement('span');
+ const title = document.createElement('h2');
+ const date = document.createElement('p')
+ const firstP = document.createElement('p');
+ const secondP = document.createElement('p');
+ const thirdP = document.createElement('p');
+ const span = document.createElement('span');
 
 // create the structure of the div
 
- div.appendChild(this.title)
- div.appendChild(this.date)
- div.appendChild(this.firstParagraph)
- div.appendChild(this.secondParagraph)
- div.appendChild(this.thirdParagraph)
- div.appendChild(newSpan)
+ div.appendChild(title)
+ div.appendChild(date)
+ div.appendChild(firstP)
+ div.appendChild(secondP)
+ div.appendChild(thirdP)
+ div.appendChild(span)
 
 // add classes to the div
 
 div.classList.add('article')
-this.date.classList.add('date')
-newSpan.classList.add('expandButton')
+date.classList.add('date')
+span.classList.add('expandButton')
 
 // set text content using argmuents as raw materials
 
-this.title.textContent = this.title
-this.date.textContent = this.date
-this.firstParagraph.textContent = this.firstParagraph
-this.secondParagraph.textContent = this.secondParagraph
-this.thirdParagraph.textContent = this.thirdParagraph
+title.textContent = data.title
+date.textContent = data.date
+firstP.textContent = data.firstParagraph
+secondP.textContent = data.secondParagraph
+thirdP.textContent = data.thirdParagraph
+span.textContent = 'expand'
+
+// Add event listener to expand and close article section
+
+span.addEventListener('click', (e)=>{
+div.classList.toggle('article-open')
+})
+
 
 
 return div
@@ -161,3 +169,10 @@ return div
 }
 
 console.log(articleMaker(data))
+
+const articles = document.querySelector('.articles')
+
+data.forEach(objectArticle => {
+  const article = articleMaker(objectArticle);
+  articles.appendChild(article)
+})
