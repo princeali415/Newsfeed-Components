@@ -114,3 +114,50 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+console.log(data)
+
+// Step 1 
+
+function articleMaker(obj){
+
+  // create the elements
+
+ const div = document.createElement('div');
+  this.title = document.createElement('h2');
+  this.date = document.createElement('p')
+  this.firstParagraph = document.createElement('p');
+  this.secondParagraph = document.createElement('p');
+  this.thirdParagraph = document.createElement('p');
+ const newSpan = document.createElement('span');
+
+// create the structure of the div
+
+ div.appendChild(this.title)
+ div.appendChild(this.date)
+ div.appendChild(this.firstParagraph)
+ div.appendChild(this.secondParagraph)
+ div.appendChild(this.thirdParagraph)
+ div.appendChild(newSpan)
+
+// add classes to the div
+
+div.classList.add('article')
+this.date.classList.add('date')
+newSpan.classList.add('expandButton')
+
+// set text content using argmuents as raw materials
+
+this.title.textContent = this.title
+this.date.textContent = this.date
+this.firstParagraph.textContent = this.firstParagraph
+this.secondParagraph.textContent = this.secondParagraph
+this.thirdParagraph.textContent = this.thirdParagraph
+
+
+return div
+
+
+}
+
+console.log(articleMaker(data))
